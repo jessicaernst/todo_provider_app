@@ -1,14 +1,24 @@
-# todo_provider_app
+# Todo App mit Provider
 
-6.3.3_TS_Provider_State_Management
-
-## Aufgabe 2
-
-Ersetze in einer der To-Do-Listen-Apps, die du über die Zeit geschrieben hast, das State Management durch die Verwendung des Provider Package.
-
-Hinweis: Verwende z.Bsp. Provider, ChangeNotifier und Consumer.
-
-hierfür überhaupt mal eine todo App geschrieben...
-kein besonderes UI nur funktional dafür:
+Eine einfache To-Do-Listen-Anwendung, die das `provider`-Paket für das State Management in Flutter demonstriert. Der Fokus liegt auf der funktionalen Implementierung und einer sauberen Code-Struktur gemäß den Best Practices für Provider.
 
 ![Screenshot 2025-04-09 at 13 15 31](https://github.com/user-attachments/assets/ae75c4a8-627e-4e04-9649-db9e85886488)
+
+## Funktionen
+
+*   Hinzufügen neuer Aufgaben über einen Dialog (Floating Action Button).
+*   Anzeigen von Aufgaben in getrennten Abschnitten: "Offen" und "Erledigt".
+*   Markieren von Aufgaben als erledigt (Checkbox), was sie visuell in den "Erledigt"-Abschnitt verschiebt.
+*   Rückgängigmachen des Erledigt-Status, was die Aufgabe zurück in den "Offen"-Abschnitt verschiebt.
+*   Löschen von Aufgaben über einen Löschen-Button pro Eintrag.
+*   Anzeige einer Nachricht, wenn keine Aufgaben vorhanden sind.
+*   Ein visueller Trenner (`Divider`) wird nur angezeigt, wenn sowohl offene als auch erledigte Aufgaben vorhanden sind.
+
+## Technische Details
+
+*   **State Management:** Verwendet das `provider`-Paket (`ChangeNotifierProvider`, `ChangeNotifier`, `Consumer`, `context.read`). Der `TodoNotifier` verwaltet den Zustand der Aufgabenliste.
+*   **Architektur:**
+    *   Modularer Aufbau mit ausgelagerten Widgets für eine bessere Lesbarkeit und Wartbarkeit (z.B. `OpenTodosSection`, `CompletedTodosSection`, `TodoTile`, `AddTodoDialog`, `EmptyListMessage`).
+    *   Verwendung von Callbacks (`ValueChanged<Todo>`, `VoidCallback`) zur Entkopplung der UI-Komponenten vom State Management (`TodoNotifier`). Die Widgets erhalten nur die Daten und Funktionen, die sie benötigen.
+*   **Tests:** Enthält Widget-Tests (`test/widget_test.dart`), die die Kernfunktionalitäten abdecken (Hinzufügen, Umschalten, Löschen, Anzeige der verschiedenen Zustände).
+
