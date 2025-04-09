@@ -9,3 +9,6 @@ Ersetze in einer der To-Do-Listen-Apps, die du über die Zeit geschrieben hast, 
 Hinweis: Verwende z.Bsp. Provider, ChangeNotifier und Consumer.
 
 hierfür überhaupt mal eine todo App geschrieben...
+kein besonderes UI nur funktional dafür:
+
+![Screenshot 2025-04-09 at 13 15 31](https://github.com/user-attachments/assets/ae75c4a8-627e-4e04-9649-db9e85886488)
