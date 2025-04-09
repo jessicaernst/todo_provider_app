@@ -19,7 +19,6 @@ class ToDoHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Consumer<TodoNotifier>(
-        // Consumer um die Listen zu holen
         builder: (context, todoNotifier, _) {
           final openTodos = todoNotifier.openTodos;
           final completedTodos = todoNotifier.completedTodos;
@@ -32,22 +31,24 @@ class ToDoHomePage extends StatelessWidget {
             return const EmptyListMessage();
           }
 
-          // Baue die ListView mit den ausgelagerten Sektions-Widgets
           return ListView(
             padding: const EdgeInsets.all(16.0),
             children: [
               if (hasOpenTodos)
-                // Verwende das ausgelagerte Widget für offene Todos
-                OpenTodosSection(todos: openTodos, notifier: todoNotifier),
+                OpenTodosSection(
+                  todos: openTodos,
+                  onToggle: (todo) => todoNotifier.toggleTodo(todo),
+                  onDelete: (todo) => todoNotifier.removeTodo(todo),
+                ),
 
               if (hasOpenTodos && hasCompletedTodos)
                 const Divider(height: 30, thickness: 1),
 
               if (hasCompletedTodos)
-                // Verwende das ausgelagerte Widget für erledigte Todos
                 CompletedTodosSection(
                   todos: completedTodos,
-                  notifier: todoNotifier,
+                  onToggle: (todo) => todoNotifier.toggleTodo(todo),
+                  onDelete: (todo) => todoNotifier.removeTodo(todo),
                 ),
             ],
           );
@@ -55,7 +56,6 @@ class ToDoHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Rufe die ausgelagerte Funktion auf, um den Dialog anzuzeigen
           showAddTodoDialog(context);
         },
         child: const Icon(Icons.add),
