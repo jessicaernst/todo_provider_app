@@ -47,5 +47,7 @@ lib/
 │           └── todo_tile.dart                 # Darstellung eines einzelnen To-Do-Eintrags
 ├── main.dart  
 
+```
 </details>
 ```
+
