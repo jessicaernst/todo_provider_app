@@ -5,7 +5,7 @@ import 'package:todo_provider_app/features/to_do_list/widgets/todo_tile.dart';
 
 class OpenTodosSection extends StatelessWidget {
   const OpenTodosSection({
-    super.key, // super.key hinzugefügt
+    super.key,
     required this.todos,
     required this.notifier,
   });
